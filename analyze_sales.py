@@ -2,7 +2,8 @@ import csv
 import os
 import locale
 
-def analyze_sales_data(filename):
+
+def load_sales(filename):
     products = {}
 
     with open(filename, 'r') as file:
@@ -15,24 +16,23 @@ def analyze_sales_data(filename):
                 products[product] += sales
             else:
                 products[product] = sales
-    
-    
+                
+    return products
+                
+def analyze_sales_data(products):    
     print(products)
     #TODO: Hitta den mest sålda produkten (TIPS! Använd Counter från collections)
     
-    # Hitta den mest lukrativa produkten
-    most_lucrative_product = max(products, key=products.get)
+    #TODO: Hitta den mest lukrativa produkten med max: max(products, key=products.get)
+    most_lucrative_product = 0
     
-    # Genomsnittlig försäljning per produkt
-    average_sales = sum(products.values()) / len(products)
-
     print(f"Mest sålda produkt: ??, Antal: ??")  #FIXME: Redovisa mest sålda produkt här
-    print(f"Mest lukrativa produkt: \"{most_lucrative_product}\" med försäljning på {locale.currency(products[most_lucrative_product],grouping=True)}")
-    print(f"Genomsnittlig försäljning per produkt: {locale.currency(average_sales, grouping=True)}")
+    print(f"Mest lukrativa produkt: \"{most_lucrative_product}\" med försäljning på {locale.currency(0,grouping=True)}") #TODO: BONUS: kan du skapa en funktion som skriver ut rätt formaterad valuta istället för detta?
 
 
 # Sätt språkinställning till svenska (Sverige) används för att skriva ut formaterad valuta
 locale.setlocale(locale.LC_ALL, 'sv_SE.UTF-8')  
 
 os.system('cls')
-analyze_sales_data('sales_data.csv')
+products = load_sales('sales_data.csv')
+analyze_sales_data(products)
