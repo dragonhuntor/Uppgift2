@@ -6,7 +6,6 @@ import locale
 
 def load_sales(filename):
     products = {}  #ordbok dictionary
-    all_products = []
 
     with open(filename, 'r') as file:
         reader = csv.DictReader(file)
@@ -22,9 +21,9 @@ def load_sales(filename):
             else:
                 products[product] = sales
                 
-    return all_products, products
+    return products
                 
-def analyze_sales_data(all_products, products):    
+def analyze_sales_data():    
     #TODO: Hitta den mest sålda produkten (TIPS! Använd Counter från collections)
     
     
