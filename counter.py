@@ -1,9 +1,17 @@
 from collections import Counter
+import os
 
-most_common_numbers = Counter([1, 5, 6, 5, 3, 1, 2, 5]).most_common(2)
-print(most_common_numbers)
-# -> [(5, 3), (1, 2)]
+os.system('cls')
+
+values = [1, 4, 6, 4, 8]  #lista
+
+most_common_numbers = Counter(values)
+
+most_common = most_common_numbers.most_common(1)[0]
+
+print("mest vanlig:", most_common[0])
+print("hur många av den mest vanliga:", most_common[1])
+
 
 most_common_letters = Counter("abcbadfbcb").most_common(3)
 print(most_common_letters)
-# -> [('b', 4), ('a', 2), ('c', 2)]
