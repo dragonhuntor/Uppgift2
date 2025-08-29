@@ -3,7 +3,7 @@ import os
 
 os.system('cls')
 
-values = [1, 4, 6, 4, 8]  #lista
+values = [1, 4, 6, 4, 8]   #lista
 
 most_common_numbers = Counter(values)
 
